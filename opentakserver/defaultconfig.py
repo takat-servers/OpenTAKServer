@@ -39,7 +39,7 @@ class DefaultConfig:
     OTS_CA_STATE = 'XX'
     OTS_CA_CITY = 'YY'
     OTS_CA_ORGANIZATION = 'ZZ'
-    OTS_CA_ORGANIZATIONAL_UNIT = 'OpenTAKServer'
+    OTS_CA_ORGANIZATIONAL_UNIT = 'OpenTAKServer-TAKAT'
     OTS_CA_SUBJECT = '/C={}/ST={}/L={}/O={}/OU={}'.format(OTS_CA_COUNTRY, OTS_CA_STATE, OTS_CA_CITY,
                                                           OTS_CA_ORGANIZATION, OTS_CA_ORGANIZATIONAL_UNIT)
     OTS_FIGLET_WIDTH = 100

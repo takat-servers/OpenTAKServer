@@ -5,7 +5,7 @@ description = "A server for ATAK, WinTAK, and iTAK"
 authors = ["OpenTAKServer <opentakserver@gmail.com>"]
 readme = "README.md"
 license = "GPL-3.0-or-later"
-repository = "https://github.com/brian7704/OpenTAKServer"
+repository = "https://github.com/takat-servers/OpenTAKServer"
 documentation = "https://docs.opentakserver.io"
 
 [tool.poetry.dependencies]
