@@ -213,7 +213,7 @@ def certificate():
 
             ca = CertificateAuthority(logger, app)
             filenames = ca.issue_certificate(username, False)
-
+            file_hashes = []
             for filename in filenames:
                 file_hash = hashlib.sha256(
                     open(os.path.join(app.config.get("OTS_CA_FOLDER"), 'certs', username, filename),
@@ -256,8 +256,8 @@ def certificate():
 
                 db.session.add(cert)
                 db.session.commit()
-
-            return {'success': True}, 200, {'Content-Type': 'application/json'}
+                file_hashes.append(file_hash)
+            return {'success': True, 'hash': file_hashes[0], 'hashItak': file_hashes[1]}, 200, {'Content-Type': 'application/json'}
         except BaseException as e:
             logger.error(traceback.format_exc())
             return {'success': False, 'error': str(e)}, 500, {'Content-Type': 'application/json'}
@@ -350,9 +350,22 @@ def get_euds():
     query = search(query, EUD, 'callsign')
     query = search(query, EUD, 'uid')
     query = search(query, User, 'username')
-
     return paginate(query)
 
+@api_blueprint.route('/api/usereuds', methods=['POST'])
+@auth_required()
+def get_usereuds():
+    username = bleach.clean(request.json.get('username')) if 'username' in request.json else None
+    query = db.session.query(EUD)
+
+    if username:
+        query = query.join(User, User.id == EUD.user_id)
+        query = query.filter(User.username == username)
+    
+    query = search(query, EUD, 'callsign')
+    query = search(query, EUD, 'uid')
+    query = search(query, User, 'username')
+    return paginate(query)
 
 @api_blueprint.route('/api/truststore')
 def get_truststore():

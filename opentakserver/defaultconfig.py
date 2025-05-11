@@ -12,9 +12,9 @@ import opentakserver
 class DefaultConfig:
     SECRET_KEY = secrets.token_hex()
     DEBUG = False
-
+    OTS_FQDN = "dev-ots.takat.nl"
     OTS_DATA_FOLDER = os.path.join(Path.home(), 'ots')
-    OTS_LISTENER_ADDRESS = "127.0.0.1"
+    OTS_LISTENER_ADDRESS = "0.0.0.0"
     OTS_LISTENER_PORT = 8081  # OTS will listen for HTTP requests on this port. Nginx will listen on ports 80, 443,
     # 8080, 8443, and 8446 and proxy requests to OTS_LISTENER_PORT
     OTS_MARTI_HTTP_PORT = 8080
