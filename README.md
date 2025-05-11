@@ -10,8 +10,6 @@ OpenTAKServer (OTS) is yet another open source TAK Server for ATAK, iTAK, and Wi
 
 This version is specific for TAKAT needs. Some functionality has been adapted for talking to our own management API and video management. We suggest to use the original version of OTS.
 
-Join us on our [Discord server](https://discord.gg/6uaVHjtfXN)
-
 ## Current Features
 - Connect via TCP from ATAK, WinTAK, and iTAK
 - SSL
@@ -43,30 +41,6 @@ Join us on our [Discord server](https://discord.gg/6uaVHjtfXN)
 - MediaMTX (Only required for video streaming)
 - openssl
 - nginx
-
-## Installation
-
-### Ubuntu
-
-`curl https://i.opentakserver.io/ubuntu_installer -Ls | bash -`
-
-### Raspberry Pi
-
-`curl https://i.opentakserver.io/raspberry_pi_installer -Ls | bash -`
-
-### Rocky 9
-
-`curl -s -L https://i.opentakserver.io/rocky_linux_installer | bash -`
-
-### Windows
-
-Open PowerShell as an administrator and run the following command
-
-`Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://i.opentakserver.io/windows_installer'))`
-
-### MacOS
-
-`curl -Ls https://i.opentakserver.io/macos_installer | bash -`
 
 ## Documentation
 
